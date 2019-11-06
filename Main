@@ -1,0 +1,21 @@
+package sk.itsovy.petrova.project;
+
+public class Main {
+
+    public static void main(String[] args) {
+        MyArray MyArray = new MyArray(new int[]{4,5,8,-5,6,0});
+        //MyArray.min2();
+        MyArray.generateValues(5,10);
+        MyArray.incrementValues();
+        System.out.println(MyArray.getAverageValue());
+        System.out.println(MyArray.min());
+        System.out.println(MyArray.max());
+        System.out.println(MyArray.contains(6));
+        System.out.println(MyArray.countOfValues(6));
+        System.out.println(MyArray.countOfEvenValues());
+
+
+
+
+    }
+}
