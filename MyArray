@@ -131,14 +131,36 @@ public class MyArray implements ArrayMethods {
        return sum;
     }
 
-    @Override
+   @Override
     public void incrementValues() {
-
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] +=  1 ;
+        }
     }
 
     @Override
     public void sort(boolean asc) {
-
+        if (asc){
+            for (int i=0; i<(size)-1; i++){
+                for (int j=0; j<(size)-i-1; j++){
+                    if (arr[j]>arr[j+1]){
+                        int temp=arr[j];
+                        arr[j]=arr[j+1];
+                        arr[j+1]=temp;
+                    }
+                }
+            }
+        }else{
+            for (int i=0; i<(size)-1; i++){
+                for (int j=0; j<(size)-i-1; j++){
+                    if (arr[j]<arr[j+1]){
+                        int temp=arr[j];
+                        arr[j]=arr[j+1];
+                        arr[j+1]=temp;
+                    }
+                }
+            }
+        }
     }
 
     @Override
@@ -158,17 +180,31 @@ public class MyArray implements ArrayMethods {
 
     @Override
     public void addItem(int newValue, int position) {
+        int[] array=new int[size+1];
+        int temp=0;
+        for (int i=0; i<size+1; i++){
+            if (position==i+1) {
+                array[i] = newValue;
+                temp++;
+            }
+            else
+                array[i]=arr[i-temp];
+        }
+        for (int i=0; i<array.length; i++){
+            System.out.print(array[i]+" ");
+        }
 
     }
 
     @Override
     public int[] copy() {
-        return new int[0];
+        return arr.clone();
     }
 
     @Override
     public int getItem(int position) {
-        return 0;
+        return arr[position];
     }
+
 
 }
